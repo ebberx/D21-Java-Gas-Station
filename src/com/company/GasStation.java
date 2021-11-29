@@ -10,11 +10,25 @@ import java.util.Random;
  */
 class FuelPump {
 
+    /**
+     * The fueltank to draw gas from
+     */
     private FuelTank fuelTank;  // Gas tank reference
 
+    /**
+     * The speed at which the pump operates in liters per pump cycle
+     */
     float pumpSpeed = 0.3f;     // liters per pump
+
+    /**
+     * Fuel counter, how much fuel has been pumped in liters
+     */
     float fuelPumped = 0;       // total fuel pumped since last reset
 
+    /**
+     * Constructor of fuel pump
+     * @param tank specifies which tank to draw gas from
+     */
     public FuelPump(FuelTank tank) {
         fuelTank = tank;
     }
@@ -59,11 +73,10 @@ class FuelPump {
  */
 class FuelTank {
 
+    /**
+     * Indicator of how much fuel is in the tank
+     */
     float fuelTankLevel;
-
-    public FuelTank(int capacity) {
-        fuelTankLevel = (float)capacity;
-    }
 
     /**
      * Tries to pump fuel from the gas tank.
@@ -110,6 +123,11 @@ class FuelTank {
  */
 public class GasStation {
 
+    /**
+     * Entry point of the program
+     * @param args program arguments
+     * @throws InterruptedException for Thread.sleep()
+     */
     public static void main(String[] args) throws InterruptedException {
 
         Thread.sleep(1000);
@@ -118,7 +136,7 @@ public class GasStation {
         // Put new fuel tank in the ground
         System.out.println("Installing gas tank ... ");
         Thread.sleep(2000);
-        FuelTank tank = new FuelTank(0);
+        FuelTank tank = new FuelTank();
         System.out.println("Gas tank now installed.\n");
 
         // Install 8 new fuel pumps
